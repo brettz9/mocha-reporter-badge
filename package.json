@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/albanm/mocha-reporter-badge",
   "dependencies": {
-    "shields-lightweight": "^0.1.0"
+    "gh-badges": "^2.2.1"
   },
   "engines": {
     "node": ">=8"
