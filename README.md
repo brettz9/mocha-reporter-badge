@@ -28,3 +28,17 @@ export MOCHA_BADGE_OK_COLOR=green
 export MOCHA_BADGE_KO_COLOR=orange
 export MOCHA_BADGE_STYLE=flat
 ```
+
+You can alternatively pass in Mocha's [`--reporter-option` or `--reporter-options`](https://mochajs.org/#-reporter-option-option-o-option-reporter-options-option) flags, though
+using a `badge_path` option in place of piping the output (since `--reporter-options`
+does not work when piping output).
+
+```sh
+mocha --reporter mocha-reporter-badge --reporter-options badge_subject=lint,badge_ok_color=green,badge_ko_color=orange,badge_style=flat,badge_path=badge.svg
+```
+
+or
+
+```sh
+mocha --reporter mocha-reporter-badge --reporter-option badge_subject=lint --reporter-option badge_ok_color=green --reporter-option badge_ko_color=orange --reporter-option badge_style=flat --reporter-option badge_path=badge.svg
+```
