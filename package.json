@@ -4,6 +4,7 @@
   "description": "A simple mocha reporter that produces a badge inspired by shields.io ",
   "main": "index.js",
   "scripts": {
+    "gulp": "gulp",
     "test": "mocha"
   },
   "repository": {
