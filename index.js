@@ -22,7 +22,7 @@ function BadgeReporter(runner, options) {
     failures++;
   });
 
-  runner.on('end', function () {
+  runner.on('end', async function () {
     const {
       badge_subject, badge_ok_color, badge_ko_color, badge_label_color,
       badge_style, badge_path
@@ -46,8 +46,8 @@ function BadgeReporter(runner, options) {
     };
     const svg = bf.create(format);
     if (badge_path) {
-      writeFile(badge_path, svg);
-      return;
+      await writeFile(badge_path, svg);
+      process.exit();
     }
 
     process.stdout.write(svg);
