@@ -1,10 +1,10 @@
-var shields = require('shields-lightweight');
+const shields = require('shields-lightweight');
 
 module.exports = BadgeReporter;
 
 function BadgeReporter(runner) {
-  var passes = 0;
-  var failures = 0;
+  let passes = 0;
+  let failures = 0;
 
   runner.on('start', function() {
   });
@@ -19,14 +19,14 @@ function BadgeReporter(runner) {
 
   runner.on('end', function() {
 
-    var subject = process.env.MOCHA_BADGE_SUBJECT || 'tests';
-    var okColor = process.env.MOCHA_BADGE_OK_COLOR || 'brightgreen';
-    var koColor = process.env.MOCHA_BADGE_KO_COLOR || 'red';
-    var style = process.env.MOCHA_BADGE_STYLE;
+    const subject = process.env.MOCHA_BADGE_SUBJECT || 'tests';
+    const okColor = process.env.MOCHA_BADGE_OK_COLOR || 'brightgreen';
+    const koColor = process.env.MOCHA_BADGE_KO_COLOR || 'red';
+    const style = process.env.MOCHA_BADGE_STYLE;
 
-    var color = (failures > 0) ? koColor : okColor;
-    var status = passes + '/' + (passes + failures);
-    
+    const color = (failures > 0) ? koColor : okColor;
+    const status = passes + '/' + (passes + failures);
+
     process.stdout.write(shields.svg(subject, status, color, style));
   });
 }

@@ -1,11 +1,12 @@
-var events = require('events');
+const assert = require('assert');
+const events = require('events');
+const BadgeReporter = require('../');
 
-var BadgeReporter = require('../');
-var runner = new events.EventEmitter();
+const runner = new events.EventEmitter();
 new BadgeReporter(runner);
 
-var capture = '';
-var oldWrite = process.stdout.write;
+let capture = '';
+const oldWrite = process.stdout.write;
 function startCapture() {
 	process.stdout.write = function(data) {
 		capture += data;
@@ -23,5 +24,6 @@ describe('mocha badge reporter', function() {
 		runner.emit('fail');
 		runner.emit('end');
 		stopCapture();
+		assert(capture);
 	});
 });
