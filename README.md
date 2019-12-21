@@ -14,7 +14,7 @@ For example the following badge is self served by this project, not by any servi
 npm install mocha-reporter-badge
 ```
 
-## usage
+## Usage
 
 ```sh
 mocha --reporter mocha-reporter-badge > badge.svg
